@@ -1,0 +1,113 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    color: white;
+}
+
+/* Main Container */
+.main {
+    text-align: center;
+    background: #1e1e1e;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Heading */
+h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Input Field */
+input[type="text"] {
+    background-image: linear-gradient(#eeeeee, #eeeeee);
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position-x: right;
+    padding: 20px;
+    width: 250px;
+    border: none;
+    border-radius: 60px;
+    background: rgba(51, 51, 51, 0.9);
+    color: rgb(180, 179, 179);
+    outline: none;
+    text-align: center;
+    transition: background-size 500ms;
+}
+
+input[type="text"]:hover {
+    background-size: 100% 100%;
+    background-position-x: left;
+}
+
+/* Button */
+button {
+    padding: 15px;
+    background: #0d0d0e;
+    color: rgb(255, 255, 255);
+    border: none;
+    height: 40px;
+    top: 100%;
+    left: 100;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: 0.7s;
+    text-align: center;
+}
+
+button:hover {
+    top: -30px;
+    left: -30px;
+    background: #6a6969
+}
+
+button:active {
+    background: #545354;
+    transform: scale(0.5);
+}
+
+/* QR Code Container */
+#qr-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#qrImage {
+    display: none;
+    width: 200px;
+    height: 200px;
+    border: 5px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+}
+
+/* Error Message */
+#errorMessage {
+    color: rgb(206, 195, 195);
+    margin-top: 10px;
+    font-weight: bold;
+}

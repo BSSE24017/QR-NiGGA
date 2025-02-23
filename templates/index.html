@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nigga QR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v={{ random_version }}">
+</head>
+<body>
+    <div class="main">
+        <h1>QR NiGGArator</h1>
+        <form id="qrForm">
+            <input type="text" name="url" placeholder="Enter Link" required>
+            <button type="submit">Generate QR</button>
+        </form>
+        <br>
+        <div id="qr-container">
+            <img id="qrImage" src="">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('qrForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            let formData = new FormData(this);
+
+            let response = await fetch('/generate_qr', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                let qrURL = URL.createObjectURL(await response.blob());
+                document.getElementById('qrImage').src = qrURL;
+                document.getElementById('qrImage').style.display = 'block';
+                document.getElementById('errorMessage').textContent = "";
+            } else {
+                let errorMsg = await response.text();
+                document.getElementById('errorMessage').textContent = errorMsg;
+                document.getElementById('qrImage').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
